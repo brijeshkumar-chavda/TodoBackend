@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Todo.Models
 {
-    public class Employee
+    public class Employee 
     {
         [Key]
         public int Id { get; set; }

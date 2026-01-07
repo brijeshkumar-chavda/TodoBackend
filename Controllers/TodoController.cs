@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Todo.Models;
 
 namespace Todo.Controllers
 {
@@ -7,10 +8,15 @@ namespace Todo.Controllers
     [Route("[controller]")]
     public class TodoController : ControllerBase
     {
+        public TodoController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+        private ApplicationDbContext _context;
         public static List<Todo> todoList = new List<Todo>();
 
-        [HttpGet(Name = "GetTodo")]
-        public IActionResult GetTodo()
+        [HttpGet(Name = "GetTask")]
+        public IActionResult GetTask()
         {
             Todo todo1 = new Todo();
             todo1.Id = 1;
