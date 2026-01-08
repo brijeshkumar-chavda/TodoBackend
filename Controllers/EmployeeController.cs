@@ -12,6 +12,9 @@ namespace Todo.Controllers
         [HttpGet(Name = "GetEmployeesList")]
         public IActionResult GetEmployeeList()
         {
+            if (employeeList.Count > 0)
+                return Ok(employeeList);
+
             Employee emp1 = new Employee();
             emp1.Id = 1;
             emp1.FirstName = "John";
@@ -41,7 +44,11 @@ namespace Todo.Controllers
         [HttpGet("{id}", Name = "GetEmployeeById")]
         public IActionResult GetEmployeeById(int id)
         {
-            Employee employee = employeeList.Where(emp => emp.Id == id).FirstOrDefault();
+            var employee = employeeList.FirstOrDefault(emp => emp.Id == id);
+
+            if (employee == null)
+                return NotFound("Employee not found");
+
             return Ok(employee);
         }
 
@@ -55,15 +62,16 @@ namespace Todo.Controllers
         [HttpDelete(Name = "DeleteEmployee")]
         public IActionResult DeleteEmployee(int id)
         {
-            Employee employee = employeeList.Where(emp => emp.Id == id).FirstOrDefault();
-            employeeList.Remove(employee);
+            var employee = employeeList.FirstOrDefault(emp => emp.Id == id);
+            if (employee != null)
+                employeeList.Remove(employee);
             return Ok(employeeList);
         }
 
         [HttpPut("{id}", Name = "UpdateEmployee")]
         public IActionResult UpdateEmployee(int id, Employee updatedEmployee)
         {
-            Employee employee = employeeList.Where(emp => emp.Id == id).FirstOrDefault();
+            var employee = employeeList.FirstOrDefault(emp => emp.Id == id);
             if (employee != null)
             {
                 employee.FirstName = updatedEmployee.FirstName;

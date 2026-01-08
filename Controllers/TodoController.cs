@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-using Todo.Models;
 
 namespace Todo.Controllers
 {
@@ -8,16 +7,14 @@ namespace Todo.Controllers
     [Route("[controller]")]
     public class TodoController : ControllerBase
     {
-        public TodoController(ApplicationDbContext context)
-        {
-            _context = context;
-        }
-        private ApplicationDbContext _context;
         public static List<Todo> todoList = new List<Todo>();
 
-        [HttpGet(Name = "GetTask")]
-        public IActionResult GetTask()
+        [HttpGet(Name = "GetTodo")]
+        public IActionResult GetTodo()
         {
+            if (todoList.Count > 0)
+                return Ok(todoList);
+
             Todo todo1 = new Todo();
             todo1.Id = 1;
             todo1.Title = "Learn C#";
@@ -42,7 +39,7 @@ namespace Todo.Controllers
         [HttpGet("{id}", Name = "GetTodoById")]
         public IActionResult GetTodoById(int id)
         {
-            var singleTask = todoList.Where(singleTask => singleTask.Id == id).FirstOrDefault();
+            var singleTask = todoList.FirstOrDefault(singleTask => singleTask.Id == id);
 
             return Ok(singleTask);
         }
@@ -57,19 +54,23 @@ namespace Todo.Controllers
         [HttpDelete(Name = "DeleteTask")]
         public IActionResult DeleteTask(int id)
         {
-            var singleTask = todoList.Where(singleTask => singleTask.Id == id).FirstOrDefault();
+            var singleTask = todoList.FirstOrDefault(singleTask => singleTask.Id == id);
 
-            todoList.Remove(singleTask);
+            if (singleTask != null)
+                todoList.Remove(singleTask);
             return Ok(todoList);
         }
 
         [HttpPut("{id}", Name = "UpdateTask")]
         public IActionResult UpdateTask(int id, Todo updatedTask)
         {
-            var singleTask = todoList.Where(singleTask => singleTask.Id == id).FirstOrDefault();
+            var singleTask = todoList.FirstOrDefault(singleTask => singleTask.Id == id);
 
-            singleTask.Title = updatedTask.Title;
-            singleTask.IsCompleted = updatedTask.IsCompleted;
+            if (singleTask != null)
+            {
+                singleTask.Title = updatedTask.Title;
+                singleTask.IsCompleted = updatedTask.IsCompleted;
+            }
             return Ok(todoList);
         }
     }

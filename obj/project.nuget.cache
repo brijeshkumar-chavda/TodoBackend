@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "JW7PGFzvilXQ/NeIH9WSMtiIA5tRF8XiXsv4V4rw9awU0OIfIv6APl6ZL+0ieo5hlZOEcj2PtOqpBFwr5yt9Ww==",
-  "success": false,
+  "dgSpecHash": "6QOTSoQAwgJtpzIwzYSzpD6ZzfnMAo4IEmDAeT7tNWpOiOY4Hz7StQMjX6pXj9pIf6jMWc7esLuMcJnO1Bj28A==",
+  "success": true,
   "projectFilePath": "/home/brijesh/Documents/projects/xhire-tech/TodoBackend/Todo.csproj",
   "expectedPackageFiles": [
     "/home/brijesh/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
+    "/home/brijesh/.nuget/packages/microsoft.aspnetcore.openapi/8.0.11/microsoft.aspnetcore.openapi.8.0.11.nupkg.sha512",
     "/home/brijesh/.nuget/packages/microsoft.bcl.asyncinterfaces/7.0.0/microsoft.bcl.asyncinterfaces.7.0.0.nupkg.sha512",
     "/home/brijesh/.nuget/packages/microsoft.build.framework/17.8.3/microsoft.build.framework.17.8.3.nupkg.sha512",
     "/home/brijesh/.nuget/packages/microsoft.build.locator/1.7.8/microsoft.build.locator.1.7.8.nupkg.sha512",
@@ -33,7 +34,8 @@
     "/home/brijesh/.nuget/packages/microsoft.extensions.primitives/9.0.11/microsoft.extensions.primitives.9.0.11.nupkg.sha512",
     "/home/brijesh/.nuget/packages/microsoft.openapi/1.6.14/microsoft.openapi.1.6.14.nupkg.sha512",
     "/home/brijesh/.nuget/packages/mono.texttemplating/3.0.0/mono.texttemplating.3.0.0.nupkg.sha512",
-    "/home/brijesh/.nuget/packages/npgsql.entityframeworkcore.postgresql/10.0.0/npgsql.entityframeworkcore.postgresql.10.0.0.nupkg.sha512",
+    "/home/brijesh/.nuget/packages/npgsql/9.0.3/npgsql.9.0.3.nupkg.sha512",
+    "/home/brijesh/.nuget/packages/npgsql.entityframeworkcore.postgresql/9.0.4/npgsql.entityframeworkcore.postgresql.9.0.4.nupkg.sha512",
     "/home/brijesh/.nuget/packages/swashbuckle.aspnetcore/6.6.2/swashbuckle.aspnetcore.6.6.2.nupkg.sha512",
     "/home/brijesh/.nuget/packages/swashbuckle.aspnetcore.swagger/6.6.2/swashbuckle.aspnetcore.swagger.6.6.2.nupkg.sha512",
     "/home/brijesh/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.6.2/swashbuckle.aspnetcore.swaggergen.6.6.2.nupkg.sha512",
@@ -54,15 +56,5 @@
     "/home/brijesh/.nuget/packages/system.text.json/9.0.11/system.text.json.9.0.11.nupkg.sha512",
     "/home/brijesh/.nuget/packages/system.threading.channels/7.0.0/system.threading.channels.7.0.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1202",
-      "level": "Error",
-      "message": "Package Npgsql.EntityFrameworkCore.PostgreSQL 10.0.0 is not compatible with net8.0 (.NETCoreApp,Version=v8.0). Package Npgsql.EntityFrameworkCore.PostgreSQL 10.0.0 supports: net10.0 (.NETCoreApp,Version=v10.0)",
-      "libraryId": "Npgsql.EntityFrameworkCore.PostgreSQL",
-      "targetGraphs": [
-        "net8.0"
-      ]
-    }
-  ]
+  "logs": []
 }
