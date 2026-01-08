@@ -10,6 +10,7 @@ namespace Todo.Models
         [Required]
         public string FirstName { get; set; } = string.Empty;
         public string LastName { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
         public int PhoneNumber { get; set; }
         public DateTime DOB { get; set; } = DateTime.UtcNow;
     }

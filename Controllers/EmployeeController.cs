@@ -38,6 +38,15 @@ namespace Todo.Controllers
             emp3.PhoneNumber = 1234567890;
             emp3.DOB = new DateTime(1992, 8, 22);
             employeeList.Add(emp3);
+
+            Employee emp4 = new Employee();
+            emp4.Id = 4;
+            emp4.FirstName = "Bob";
+            emp4.LastName = "Williams";
+            emp4.Email = "bob.williams@example.com";
+            emp4.PhoneNumber = 1234567890;
+            emp4.DOB = new DateTime(1988, 12, 10);
+            employeeList.Add(emp4);
             return Ok(employeeList);
         }
 
@@ -53,10 +62,25 @@ namespace Todo.Controllers
         }
 
         [HttpPost(Name = "CreateEmployee")]
-        public IActionResult CreateEmployee(Employee employee)
+        public IActionResult CreateEmployee(Employee rigesterEmployee)
         {
-            employeeList.Add(employee);
-            return Ok(employeeList);
+            if (employeeList.Any(singleEmployee => singleEmployee.Email == rigesterEmployee.Email))
+            {
+                return BadRequest("Email already exists");
+            }
+            if (employeeList.Any(emp => emp.PhoneNumber == rigesterEmployee.PhoneNumber))
+            {
+                return BadRequest("Phone number already exists");
+            }
+            if ((DateTime.Today.Year - rigesterEmployee.DOB.Year) > 18)
+            {
+                return BadRequest("Employee must be at 18 plus years old.");
+            }
+            else
+            {
+                employeeList.Add(rigesterEmployee);
+                return Ok(employeeList);
+            }
         }
 
         [HttpDelete(Name = "DeleteEmployee")]
