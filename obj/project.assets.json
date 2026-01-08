@@ -1042,11 +1042,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/brijesh/Documents/projects/xhire-tech/Todo/Todo.csproj",
+      "projectUniqueName": "/home/brijesh/Documents/projects/xhire-tech/TodoBackend/Todo.csproj",
       "projectName": "Todo",
-      "projectPath": "/home/brijesh/Documents/projects/xhire-tech/Todo/Todo.csproj",
+      "projectPath": "/home/brijesh/Documents/projects/xhire-tech/TodoBackend/Todo.csproj",
       "packagesPath": "/home/brijesh/.nuget/packages/",
-      "outputPath": "/home/brijesh/Documents/projects/xhire-tech/Todo/obj/",
+      "outputPath": "/home/brijesh/Documents/projects/xhire-tech/TodoBackend/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/brijesh/.nuget/NuGet/NuGet.Config"
